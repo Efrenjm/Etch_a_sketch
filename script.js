@@ -26,3 +26,9 @@ template = 'repeat('+dimension+',1fr)'
 container.style.gridTemplateColumns = template//'repeat(3,1fr)'
 let gridItems = document.querySelectorAll('.grid-item');
 
+function pixel(){
+    this.style.backgroundColor = 'salmon'
+}
+
+gridItems.forEach(element => element.addEventListener('mouseover',pixel))
+
