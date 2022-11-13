@@ -1,6 +1,6 @@
-//Crea y redimenciona el grid
-function createGrid(dimension){ 
-    //Calcula cuántos elementos debe de haber por fila
+//Crea y redimensiona el grid
+function resizeGrid(dimension){ 
+    //Calcula cuántos elementos debe de haber
     elements = dimension**2
     elementWidth = container.offsetWidth/dimension;
 
@@ -18,7 +18,7 @@ function createGrid(dimension){
     //Si se requieren eliminar algunos cuadros
     }else if (childs>elements){
         for (let i = elements; i<childs; i++){
-            container.removeChild(container.lastElementChild);
+            container.removeChild(container.firstElementChild);
         }
     }
 
@@ -27,7 +27,10 @@ function createGrid(dimension){
     let gridItems = document.querySelectorAll('.grid-item');
 
     //Dale la propiedad de hover
-    gridItems.forEach(element => element.addEventListener('mouseover',function () {this.style.backgroundColor = 'salmon'}))
+    gridItems.forEach(element => {
+        element.style.backgroundColor ='#ffffff';
+        element.addEventListener('mouseover',function(){this.style.backgroundColor = 'salmon'})
+        })
 
 }
 const container = document.getElementById('container')
@@ -35,16 +38,11 @@ let bgColor = '#ffffff';
 container.style.backgroundColor = bgColor;
 
 dimension = 15;
-createGrid(dimension);
-//template = 'repeat('+dimension+',1fr)';
-
-
-//function pixel(){
-    
+resizeGrid(dimension);
 
 let boton = document.querySelector(".boton");
 
 boton.addEventListener("click",() => {
     let dimension = prompt("Seleccione las dimensiones del recuadro");
-    createGrid(dimension);
+    resizeGrid(dimension);
     });
