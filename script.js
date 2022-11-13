@@ -26,13 +26,13 @@ function resizeGrid(dimension){
     container.style.gridTemplateColumns = 'repeat('+dimension+',1fr)';
     let gridItems = document.querySelectorAll('.grid-item');
 
-    //Dale la propiedad de hover
+    //Dale la propiedad de hover y haz que todos sean blancos de nuevo
     gridItems.forEach(element => {
         element.style.backgroundColor ='#ffffff';
         element.addEventListener('mouseover',function(){this.style.backgroundColor = 'salmon'})
         })
-
 }
+
 const container = document.getElementById('container')
 let bgColor = '#ffffff';
 container.style.backgroundColor = bgColor;
